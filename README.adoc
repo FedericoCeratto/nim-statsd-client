@@ -1,0 +1,31 @@
+
+### StatsD client for Nim
+
+A simple, stateless StatsD client.
+
+Install:
+[source,bash]
+----
+nimble install statsd_client
+----
+
+Usage example:
+[source,nim]
+----
+import statsd
+
+let stats = newStatdClient(prefix="foo")
+stats.incr("mycnt")
+stats.incr("mycnt", 3)
+stats.decr("mycnt", 3)
+stats.timing("mytimer_float", 110.0)
+stats.timing("mytimer_int", 110)
+stats.gauge("mygauge", 1.0)
+stats.gauge("mygauge", 2)
+stats.gauge("mygauge", 1, delta=true)
+stats.gauge("mygauge", -2, delta=true)
+stats.set("set_one", "a")
+stats.set("set_one", "b")
+stats.timed("mytimer"):
+  slow_proc()
+----
