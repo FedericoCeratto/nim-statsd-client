@@ -9,3 +9,5 @@ license       = "LGPLv3"
 
 requires "nim >= 0.15.2"
 
+
+skipDirs = @["demos"]
