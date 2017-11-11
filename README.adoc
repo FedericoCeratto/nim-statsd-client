@@ -12,7 +12,7 @@ nimble install statsd_client
 Usage example:
 [source,nim]
 ----
-import statsd
+import statsd_client
 
 let stats = newStatdClient(prefix="foo")
 stats.incr("mycnt")
