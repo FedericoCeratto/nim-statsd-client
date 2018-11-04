@@ -34,7 +34,7 @@ proc newStatdClient*(host="localhost", port=8125, prefix=""): StatsdClient =
 
 proc send_out(client: StatsdClient, msg: string) =
   ## Send raw data to the Statsd daemon
-  discard client.sock.sendTo(client.hostname, client.port, msg)
+  client.sock.sendTo(client.hostname, client.port, msg)
 
 proc incr*(client: StatsdClient, name: string, count=1) =
   ## Increment a stat by "count"
@@ -69,7 +69,7 @@ proc histogram*(client: StatsdClient, name: string, value: int|float) =
   ## Add a datapoint to a histogram
   client.send_out("$#$#:$#|h\n" % [client.computed_prefix, name, $value])
 
-template timed*(statsd_client: StatsdClient, name: string, body: stmt): stmt =
+template timed*(statsd_client: StatsdClient, name: string, body: typed): typed =
   ## Encapsulate a code block and time its execution in milliseconds
   let statsd_timed_start_time = epochTime()
   body
