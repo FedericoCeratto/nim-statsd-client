@@ -1,7 +1,13 @@
 
 ### StatsD client for Nim
 
+image:https://img.shields.io/badge/status-beta-orange.svg[badge]
+image:https://img.shields.io/github/tag/FedericoCeratto/nim-statsd-client.svg[tags]
+image:https://img.shields.io/badge/License-LGPL%20v3-blue.svg[License]
+
 A simple, stateless StatsD client.
+
+Documentation: https://federicoceratto.github.io/nim-statsd-client/0.1.1/statsd_client.html[module] https://federicoceratto.github.io/nim-statsd-client/0.1.1/theindex.html[index]
 
 Install:
 [source,bash]
